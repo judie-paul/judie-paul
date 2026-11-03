@@ -52,7 +52,7 @@
 <p align="center">
   <a href="https://github.com/judie-paul/reference-based-revision-tool"><img src="assets/cards/reference-based-revision-tool.svg?v=01c8a49" width="49%" alt="Revision Tool" /></a>
   <a href="https://github.com/judie-paul/citewise-ai"><img src="assets/cards/citewise-ai.svg?v=90e2a68" width="49%" alt="CiteWise AI" /></a>
-  <a href="https://github.com/judie-paul/github-resume-generator"><img src="assets/cards/github-resume-generator.svg?v=e7cf369" width="49%" alt="GitHub → Resume" /></a>
+  <a href="https://github.com/judie-paul/github-resume-generator"><img src="assets/cards/github-resume-generator.svg?v=59f1baf" width="98.8%" alt="GitHub → Resume" /></a>
 </p>
 
 
@@ -61,7 +61,7 @@
 <p align="center">
   <a href="https://github.com/judie-paul/shoebox"><img src="assets/cards/shoebox.svg?v=12ad69b" width="49%" alt="Shoebox" /></a>
   <a href="https://github.com/judie-paul/school-management-system"><img src="assets/cards/school-management-system.svg?v=80a6827" width="49%" alt="School Management" /></a>
-  <a href="https://github.com/judie-paul/contractor-application"><img src="assets/cards/contractor-application.svg?v=3c93bbe" width="49%" alt="Contractor Application" /></a>
+  <a href="https://github.com/judie-paul/contractor-application"><img src="assets/cards/contractor-application.svg?v=649fe77" width="98.8%" alt="Contractor Application" /></a>
 </p>
 <!-- PROJECTS:END -->
 

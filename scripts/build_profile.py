@@ -56,7 +56,7 @@ AI_WORDS = re.compile(r"\b(ai|llm|llms|claude|gemini|openai|gpt)\b", re.I)
 LANG_COLORS = {"Python": "#3572A5", "Go": "#00ADD8", "TypeScript": "#3178c6",
                "JavaScript": "#f1e05a", "HTML": "#e34c26", "CSS": "#563d7c"}
 FONT = "'Segoe UI',-apple-system,'Helvetica Neue',Arial,sans-serif"
-CW, CH = 420, 150
+CARD_W, WIDE_W, CH = 420, 856, 150
 
 
 def fetch_repos():
@@ -83,9 +83,10 @@ def group_of(repo):
     return "app"
 
 
-def card_svg(repo, accent, deep, index):
+def card_svg(repo, accent, deep, index, wide=False):
+    CW = WIDE_W if wide else CARD_W
     title, pitch = CARD_TEXT.get(repo["name"], (repo["name"], repo.get("description") or ""))
-    lines = textwrap.wrap(pitch, 58)[:3]
+    lines = textwrap.wrap(pitch, 118 if wide else 58)[:3]
     lang = repo.get("language") or ""
     desc = "".join(
         f'<text x="24" y="{76 + i * 19}" fill="#c3b6e6" font-size="13">{escape(l)}</text>'
@@ -139,15 +140,17 @@ def build(repos):
         if not group:
             continue
         html.append(f"\n**{heading}**\n\n<p align=\"center\">")
-        for repo in group:
+        for n, repo in enumerate(group):
             index += 1
-            svg = card_svg(repo, accent, deep, index)
+            # An odd card at the end of a group spans the full row instead of sitting alone
+            wide = len(group) % 2 == 1 and n == len(group) - 1
+            svg = card_svg(repo, accent, deep, index, wide)
             path = CARDS / f'{repo["name"]}.svg'
             path.write_text(svg, encoding="utf-8")
             v = hashlib.sha1(svg.encode()).hexdigest()[:7]  # new address when a card changes
             title = CARD_TEXT.get(repo["name"], (repo["name"],))[0]
             html.append(f'  <a href="https://github.com/{USER}/{repo["name"]}"><img src="assets/cards/{repo["name"]}.svg?v={v}" '
-                        f'width="49%" alt="{escape(title)}" /></a>')
+                        f'width="{"98.8%" if wide else "49%"}" alt="{escape(title)}" /></a>')
         html.append("</p>\n")
     return "\n".join(html)
 
