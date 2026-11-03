@@ -76,17 +76,31 @@ def render(cal, theme):
         f'<text x="{LEFT}" y="22" font-size="14" font-weight="600" fill="{t["title"]}">'
         f'{cal["totalContributions"]:,} contributions in the last year</text>',
     ]
+    days = [d for w in weeks for d in w["contributionDays"]]
+    start = dt.date.fromisoformat(days[0]["date"])
+    end = dt.date.fromisoformat(days[-1]["date"])
+    out.append(f'<text x="{width - 10}" y="22" font-size="11" text-anchor="end" fill="{t["text"]}">'
+               f'{start.strftime("%b %-d, %Y")} – {end.strftime("%b %-d, %Y")}</text>')
 
     # Month labels: where a week contains the 1st of a month (or the first week)
-    last_month, last_x = None, -99
+    last_month, last_x, last_year = None, -99, None
     for i, w in enumerate(weeks):
         first = dt.date.fromisoformat(w["contributionDays"][0]["date"])
         x = LEFT + i * STEP
         if first.month != last_month:
             last_month = first.month
             if x - last_x >= 3 * STEP and i < len(weeks) - 2:  # avoid overlapping labels
+                # Show the year on the first label and whenever the year changes
+                label = first.strftime("%b")
+                if first.year != last_year:
+                    label = first.strftime("%b %Y")
+                    last_year = first.year
+                    if i > 0:  # thin divider where a new year starts
+                        out.append(f'<line x1="{x - GAP / 2}" y1="{TOP - 20}" x2="{x - GAP / 2}" '
+                                   f'y2="{TOP + 7 * STEP - GAP}" stroke="{t["text"]}" '
+                                   f'stroke-opacity=".35" stroke-dasharray="2 3"/>')
                 out.append(f'<text x="{x}" y="{TOP - 8}" font-size="10" '
-                           f'fill="{t["text"]}">{first.strftime("%b")}</text>')
+                           f'fill="{t["text"]}">{label}</text>')
                 last_x = x
 
     for row, name in ((1, "Mon"), (3, "Wed"), (5, "Fri")):
