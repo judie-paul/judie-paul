@@ -1,5 +1,8 @@
-<h1 align="center">Judy Ndungu</h1>
-<p align="center"><b>AI evaluation & data quality</b> · I build tools that measure whether human and model judgments can be trusted — and AI apps that cite their sources.</p>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:2ea043&height=190&section=header&text=Judy%20Ndungu&fontColor=ffffff&fontSize=50&fontAlignY=36&animation=fadeIn&desc=AI%20evaluation%20%26%20data%20quality&descAlignY=58&descSize=18" width="100%" alt="Judy Ndungu — AI evaluation & data quality">
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=2EA043&center=true&vCenter=true&width=640&lines=Measuring+whether+model+judgments+can+be+trusted;Rubrics+%C2%B7+agreement+metrics+%C2%B7+LLM-judge+bias;Annotation+QA+with+evidence+for+every+flag;AI+apps+that+cite+real+sources" alt="Typing animation of focus areas">
+</p>
 
 <p align="center">
   <a href="mailto:YOUR_EMAIL"><img src="https://img.shields.io/badge/Email-222?style=flat&logo=gmail&logoColor=white" alt="Email"></a>
@@ -63,4 +66,13 @@ I work in AI output evaluation and quality assurance — scoring model responses
 - **Reproducible** — seeded data, pinned datasets, one-command setup with Docker, `make` or a single binary.
 - **Reviewer-first** — tools show the evidence behind a flag, not just a score.
 
+---
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/judie-paul/judie-paul/output/github-snake-dark.svg">
+  <img src="https://raw.githubusercontent.com/judie-paul/judie-paul/output/github-snake.svg" width="100%" alt="Snake animation eating the contribution graph">
+</picture>
+
 <p align="center"><sub>Open to roles in AI evaluation, data quality and analytics.</sub></p>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2ea043,100:0d1117&height=110&section=footer" width="100%" alt="">
