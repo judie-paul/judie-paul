@@ -157,15 +157,184 @@ def render(year, total, days, today, theme):
 def main():
     today = dt.datetime.now(dt.timezone.utc).date()
     os.makedirs(OUT_DIR, exist_ok=True)
+    all_days = {}
     for year, prefix in ((today.year, "calendar"), (today.year - 1, "calendar-prev")):
         if "--fake" in sys.argv:
             total, days = fake(year, today)
         else:
             total, days = fetch(os.environ["GITHUB_USER"], os.environ["GITHUB_TOKEN"], year)
+        all_days.update(days)
         for theme, suffix in (("light", ""), ("dark", "-dark")):
             with open(os.path.join(OUT_DIR, f"{prefix}{suffix}.svg"), "w", encoding="utf-8") as f:
                 f.write(render(year, total, days, today, theme))
         print(f"{year}: {total} contributions")
+    for theme, suffix in (("light", ""), ("dark", "-dark")):
+        with open(os.path.join(OUT_DIR, f"training{suffix}.svg"), "w", encoding="utf-8") as f:
+            f.write(render_training(all_days, today, theme))
+    print("training panel written")
+
+
+# ---------------------------------------------------------------- training-run panel
+TRAIN = {
+    "dark": {"bg0": "#0f0b1e", "bg1": "#1b1238", "card": "#16102e", "line": "#3b2a6b", "grid": "#2a2050",
+             "lav": "#c4a7ff", "orchid": "#e879f9", "pink": "#f0abfc", "soft": "#c3b6e6", "dim": "#a99cc8",
+             "title": "#ede7ff", "bar": "#5b3fa0"},
+    "light": {"bg0": "#ffffff", "bg1": "#f6f1ff", "card": "#f3edff", "line": "#d9ccf5", "grid": "#ece4fb",
+              "lav": "#7c5ce6", "orchid": "#c026d3", "pink": "#a21caf", "soft": "#4b3f6b", "dim": "#6e6390",
+              "title": "#1f1535", "bar": "#c4a7ff"},
+}
+WINDOW = 90  # days shown in the chart
+
+
+def streaks(counts):
+    """counts: list of daily counts, oldest first, ending today. Returns (current, longest, longest_end_index)."""
+    longest = run = 0
+    end = -1
+    for i, n in enumerate(counts):
+        run = run + 1 if n else 0
+        if run > longest:
+            longest, end = run, i
+    cur = 0
+    i = len(counts) - 1
+    if counts and counts[-1] == 0:  # today not counted yet: streak still alive from yesterday
+        i -= 1
+    while i >= 0 and counts[i]:
+        cur += 1
+        i -= 1
+    return cur, longest, end
+
+
+def render_training(days, today, theme):
+    c = TRAIN[theme]
+    W, H = 1000, 395
+    # full daily history (for totals and streaks) and the chart window
+    first = min((dt.date.fromisoformat(k) for k, v in days.items() if v["contributionCount"]), default=today)
+    span = (today - first).days + 1
+    hist = [days.get((first + dt.timedelta(i)).isoformat(), {"contributionCount": 0})["contributionCount"]
+            for i in range(span)]
+    total = sum(hist)
+    active = sum(1 for n in hist if n)
+    cur, longest, _ = streaks(hist)
+    # Chart window: up to WINDOW days, starting a little before the first activity in that range
+    start = today - dt.timedelta(days=WINDOW - 1)
+    recent = [start + dt.timedelta(i) for i in range(WINDOW)
+              if days.get((start + dt.timedelta(i)).isoformat(), {"contributionCount": 0})["contributionCount"]]
+    if recent:
+        start = max(start, min(recent[0] - dt.timedelta(days=10), today - dt.timedelta(days=29)))
+    n_days = (today - start).days + 1
+    win = [days.get((start + dt.timedelta(i)).isoformat(), {"contributionCount": 0})["contributionCount"]
+           for i in range(n_days)]
+    before = total - sum(win)
+    cum, run = [], before
+    for n in win:
+        run += n
+        cum.append(run)
+    gained = sum(win)
+    peak_i = max(range(n_days), key=lambda i: win[i])
+
+    # chart geometry
+    cx0, cy0, cw, ch = 60, 96, 600, 190
+    ymin, ymax = before, max(cum[-1], before + 1)
+    pad = (ymax - ymin) * .08 or 1
+    ymax += pad
+
+    def X(i):
+        return cx0 + i * cw / (n_days - 1)
+
+    def Y(v):
+        return cy0 + ch - (v - ymin) / (ymax - ymin) * ch
+
+    line = " ".join(f"{'M' if i == 0 else 'L'}{X(i):.1f},{Y(v):.1f}" for i, v in enumerate(cum))
+    area = line + f" L{X(n_days - 1):.1f},{cy0 + ch} L{X(0):.1f},{cy0 + ch} Z"
+    bar_max = max(win) or 1
+
+    css = (
+        "@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}"
+        ".ln{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s cubic-bezier(.4,.1,.2,1) .3s forwards}"
+        "@keyframes fade{from{opacity:0}to{opacity:1}}"
+        ".ar{opacity:0;animation:fade 1.2s ease-out 1.6s forwards}"
+        "@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}"
+        ".br{transform-box:fill-box;transform-origin:bottom;transform:scaleY(0);animation:grow .5s ease-out forwards}"
+        "@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}"
+        ".up{opacity:0;animation:up .6s ease-out forwards}"
+        "@keyframes ping{0%{r:5;opacity:1}100%{r:16;opacity:0}}"
+        ".pg{animation:ping 1.6s ease-out 2.7s infinite;opacity:0}"
+        ".dt{opacity:0;animation:fade .3s ease-out 2.6s forwards}"
+    )
+    mono = "'JetBrains Mono','Fira Code',Consolas,monospace"
+    sans = "'Segoe UI',-apple-system,'Helvetica Neue',Arial,sans-serif"
+
+    def tx(x, y, s, size=12, fill=None, weight=400, font=sans, anchor="start", extra=""):
+        return (f'<text x="{x}" y="{y}" font-family="{font}" font-size="{size}" fill="{fill or c["soft"]}" '
+                f'font-weight="{weight}" text-anchor="{anchor}" {extra}>{s}</text>')
+
+    p = [f'<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{c["bg0"]}"/>'
+         f'<stop offset="1" stop-color="{c["bg1"]}"/></linearGradient>'
+         f'<linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{c["lav"]}" stop-opacity=".45"/>'
+         f'<stop offset="1" stop-color="{c["lav"]}" stop-opacity="0"/></linearGradient>'
+         f'<linearGradient id="stroke" x1="0" x2="1"><stop offset="0" stop-color="{c["lav"]}"/>'
+         f'<stop offset="1" stop-color="{c["orchid"]}"/></linearGradient></defs>',
+         f'<rect width="{W}" height="{H}" rx="18" fill="url(#bg)"/>',
+         f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="18" fill="none" stroke="{c["line"]}"/>',
+         tx(30, 44, "&gt; training_run --model judy.v2026", 16, c["lav"], 700, mono),
+         tx(cx0 + cw, 44, f"{fmt(start)} – {fmt(today)}, {today.year}", 12, c["dim"], font=mono, anchor="end"),
+         tx(cx0, 76, "total contributions (cumulative)", 12, c["dim"], font=mono)]
+
+    # gridlines with labels
+    for k in range(5):
+        v = ymin + (ymax - ymin) * k / 4
+        y = Y(v)
+        p.append(f'<line x1="{cx0}" y1="{y:.1f}" x2="{cx0 + cw}" y2="{y:.1f}" stroke="{c["grid"]}"/>')
+        p.append(tx(cx0 - 10, y + 4, f"{round(v)}", 10, c["dim"], font=mono, anchor="end"))
+    # month ticks
+    base = cy0 + ch + 44  # baseline of the daily bars, below the chart
+    for i in range(n_days):
+        d = start + dt.timedelta(i)
+        near_month = any((d + dt.timedelta(k)).day == 1 for k in range(-3, 4)) or i < 4
+        if d.day == 1 or i == 0 or (n_days <= 45 and d.weekday() == 0 and not near_month):
+            lab = d.strftime("%b") if (d.day == 1 or i == 0) else f"{d.day}"
+            p.append(tx(X(i), base + 18, lab, 10.5, c["dim"], font=mono, anchor="middle" if i else "start"))
+    p.append(tx(cx0 - 10, base - 8, "daily", 9.5, c["dim"], font=mono, anchor="end"))
+
+    # daily bars along the bottom (activity), then the cumulative curve
+    bh = 30
+    for i, n in enumerate(win):
+        if n:
+            h = max(3, n / bar_max * bh)
+            p.append(f'<rect class="br" x="{X(i) - 3:.1f}" y="{base - h:.1f}" width="6" height="{h:.1f}" rx="2" '
+                     f'fill="{c["bar"]}" style="animation-delay:{.3 + i * 2.4 / n_days:.2f}s"/>')
+    p.append(f'<line x1="{cx0}" y1="{base}" x2="{cx0 + cw}" y2="{base}" stroke="{c["line"]}"/>')
+    p.append(f'<path class="ar" d="{area}" fill="url(#fill)"/>')
+    p.append(f'<path class="ln" d="{line}" pathLength="1" fill="none" stroke="url(#stroke)" stroke-width="3" '
+             f'stroke-linecap="round" stroke-linejoin="round"/>')
+    ex, ey = X(n_days - 1), Y(cum[-1])
+    p.append(f'<circle class="pg" cx="{ex:.1f}" cy="{ey:.1f}" r="5" fill="none" stroke="{c["orchid"]}" stroke-width="2"/>')
+    p.append(f'<circle class="dt" cx="{ex:.1f}" cy="{ey:.1f}" r="5" fill="{c["orchid"]}"/>')
+    if gained:
+        p.append(f'<g class="dt">' + tx(ex - 10, ey - 14, f"+{gained} in {n_days} days", 12, c["pink"], 700, mono, "end") + "</g>")
+        if win[peak_i]:
+            px = X(peak_i)
+            p.append(f'<g class="dt">' + tx(px, base - max(3, win[peak_i] / bar_max * bh) - 6,
+                                            f"peak day: {win[peak_i]}", 9.5, c["dim"], font=mono, anchor="middle") + "</g>")
+
+    # stat tiles
+    tiles = [(f"{total:,}", "contributions", f"since {fmt(first)}, {first.year}"),
+             (f"{active}", "active days", "with a contribution"),
+             (f"{cur}", "current streak", f"day{'s' if cur != 1 else ''} · and counting"),
+             (f"{longest}", "longest streak", f"day{'s' if longest != 1 else ''} · personal best")]
+    tx0, ty0, tw, th, g = 696, 70, 138, 138, 14
+    for k, (num, l1, l2) in enumerate(tiles):
+        x = tx0 + (k % 2) * (tw + g)
+        y = ty0 + (k // 2) * (th + g)
+        p.append(f'<g class="up" style="animation-delay:{.4 + k * .18:.2f}s">'
+                 f'<rect x="{x}" y="{y}" width="{tw}" height="{th}" rx="14" fill="{c["card"]}" stroke="{c["line"]}"/>'
+                 + tx(x + 16, y + 56, num, 34, c["lav"] if k % 2 == 0 else c["orchid"], 800)
+                 + tx(x + 16, y + 84, l1, 12, c["title"], 600)
+                 + tx(x + 16, y + 104, l2, 10.5, c["dim"]) + "</g>")
+
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" '
+            f'aria-label="Training run: {total} contributions, {active} active days, current streak {cur}, longest streak {longest}">'
+            f'<style>{css}</style>{"".join(p)}</svg>\n')
 
 
 if __name__ == "__main__":

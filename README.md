@@ -93,30 +93,18 @@
 
 ## 🏋️ Training activity
 
-<div align="center">
-
-<img src="https://streak-stats.demolab.com?user=judie-paul&theme=dark&hide_border=true&background=0F0B1E&ring=C4A7FF&fire=E879F9&currStreakLabel=C4A7FF&sideLabels=CBBFE8&dates=A99CC8&currStreakNum=EDE7FF&sideNums=EDE7FF" />
-
-</div>
-
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/judie-paul/judie-paul/output/calendar-dark.svg">
-  <img src="https://raw.githubusercontent.com/judie-paul/judie-paul/output/calendar.svg" width="100%" alt="Contribution calendar with months and days">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/judie-paul/judie-paul/output/training-dark.svg">
+  <img src="https://raw.githubusercontent.com/judie-paul/judie-paul/output/training.svg" width="100%" alt="Training run: cumulative contributions with daily activity, total, active days and streaks">
 </picture>
 
 <details>
-  <summary>Previous training run (last year)</summary>
+  <summary>Full contribution calendar</summary>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/judie-paul/judie-paul/output/calendar-prev-dark.svg">
-    <img src="https://raw.githubusercontent.com/judie-paul/judie-paul/output/calendar-prev.svg" width="100%" alt="Last year's contribution calendar">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/judie-paul/judie-paul/output/calendar-dark.svg">
+    <img src="https://raw.githubusercontent.com/judie-paul/judie-paul/output/calendar.svg" width="100%" alt="This year's contribution calendar">
   </picture>
 </details>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/judie-paul/judie-paul/output/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/judie-paul/judie-paul/output/github-snake.svg" />
-  <img alt="contribution snake" src="https://raw.githubusercontent.com/judie-paul/judie-paul/output/github-snake-dark.svg" width="100%" />
-</picture>
 
 ## 🧰 Architecture
 
