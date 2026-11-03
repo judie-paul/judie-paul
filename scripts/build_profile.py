@@ -57,7 +57,7 @@ LANG_COLORS = {"Python": "#3572A5", "Go": "#00ADD8", "TypeScript": "#3178c6",
                "JavaScript": "#f1e05a", "HTML": "#e34c26", "CSS": "#563d7c"}
 FONT = "'Segoe UI',-apple-system,'Helvetica Neue',Arial,sans-serif"
 # Card shapes: wide pairs (2 per row) and tall tiles (3 per row, used for odd-sized groups)
-SHAPES = {"pair": (420, 150, 58, 3, "49%"), "tile": (280, 190, 36, 4, "32.6%")}
+SHAPES = {"pair": (420, 160, 58, 3, "49%"), "tile": (280, 200, 36, 4, "32.6%")}
 
 
 def fetch_repos():
@@ -89,9 +89,14 @@ def card_svg(repo, accent, deep, index, shape="pair"):
     title, pitch = CARD_TEXT.get(repo["name"], (repo["name"], repo.get("description") or ""))
     lines = textwrap.wrap(pitch, wrap)[:max_lines]
     title_size = 19 if shape == "pair" else 17
+    # Tiles are narrow, so they show just the repo name (shortened if it is very long)
+    path_label = f'{USER}/{repo["name"]}' if shape == "pair" else repo["name"]
+    max_chars = 52 if shape == "pair" else 30
+    if len(path_label) > max_chars:
+        path_label = path_label[:max_chars - 1] + "…"
     lang = repo.get("language") or ""
     desc = "".join(
-        f'<text x="24" y="{76 + i * 19}" fill="#c3b6e6" font-size="13">{escape(l)}</text>'
+        f'<text x="24" y="{80 + i * 18}" fill="#c3b6e6" font-size="13">{escape(l)}</text>'
         for i, l in enumerate(lines))
     lang_el = ""
     if lang:
@@ -121,8 +126,9 @@ def card_svg(repo, accent, deep, index, shape="pair"):
 <rect class="s" x="0" y="0" width="140" height="2" fill="url(#sh)"/>
 </g>
 <rect x=".5" y=".5" width="{CW - 1}" height="{CH - 1}" rx="14" fill="none" stroke="#3b2a6b"/>
-<text x="24" y="42" fill="#ede7ff" font-size="{title_size}" font-weight="700">{escape(title)}</text>
-<text x="{CW - 24}" y="42" fill="{accent}" font-size="16" text-anchor="end">↗</text>
+<text x="24" y="28" fill="#a99cc8" font-size="10.5" font-family="'JetBrains Mono',Consolas,monospace">{escape(path_label)}</text>
+<text x="24" y="52" fill="#ede7ff" font-size="{title_size}" font-weight="700">{escape(title)}</text>
+<text x="{CW - 24}" y="30" fill="{accent}" font-size="16" text-anchor="end">↗</text>
 {desc}
 {lang_el}{live}
 </svg>
@@ -173,6 +179,9 @@ def main():
     else:
         repos = fetch_repos()
     grid = build(repos)
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import build_art
+    build_art.metrics(projects=len(repos))
 
     text = README.read_text(encoding="utf-8")
     text = replace_between(text, "PROJECTS", grid)
