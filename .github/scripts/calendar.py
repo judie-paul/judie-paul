@@ -291,7 +291,7 @@ def render_training(days, today, theme):
     for i in range(n_days):
         d = start + dt.timedelta(i)
         near_month = any((d + dt.timedelta(k)).day == 1 for k in range(-3, 4)) or i < 4
-        if d.day == 1 or i == 0 or (n_days <= 45 and d.weekday() == 0 and not near_month):
+        if d.day == 1 or i == 0 or (n_days <= 60 and d.weekday() == 0 and not near_month):
             lab = d.strftime("%b") if (d.day == 1 or i == 0) else f"{d.day}"
             p.append(tx(X(i), base + 18, lab, 10.5, c["dim"], font=mono, anchor="middle" if i else "start"))
     p.append(tx(cx0 - 10, base - 8, "daily", 9.5, c["dim"], font=mono, anchor="end"))
