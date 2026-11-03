@@ -1,66 +1,84 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:2ea043&height=190&section=header&text=Judy%20Ndungu&fontColor=ffffff&fontSize=50&fontAlignY=36&animation=fadeIn&desc=AI%20evaluation%20%C2%B7%20data%20quality&descAlignY=58&descSize=18" width="100%" alt="Judy Ndungu — AI evaluation and data quality">
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:08130e,50:0e4429,100:39d353&height=200&section=header&text=Judy%20Ndungu&fontSize=56&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=I%20measure%20whether%20AI%20can%20be%20trusted%20%E2%80%94%20then%20build%20apps%20that%20earn%20it&descSize=16&descAlignY=58" />
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=2EA043&center=true&vCenter=true&width=640&lines=Measuring+whether+model+judgments+can+be+trusted;Rubrics+%C2%B7+agreement+metrics+%C2%B7+LLM-judge+bias;Annotation+QA+with+evidence+for+every+flag;AI+apps+that+cite+real+sources" alt="Typing animation of focus areas">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=3500&pause=800&color=39D353&center=true&vCenter=true&width=720&multiline=false&lines=%3E+scoring+model+responses...;%3E+measuring+rater+agreement...;%3E+catching+LLM-judge+bias...;%3E+auditing+training+labels...;%3E+shipping+AI+apps+that+cite+real+sources...;%3E+status%3A+building+in+public+%E2%9A%A1" alt="Typing animation" />
 </p>
 
----
+<div align="center">
 
-### About
+<!-- BADGE:START --><a href="https://github.com/judie-paul?tab=repositories"><img src="https://img.shields.io/badge/projects-10_public-1f6f43?style=flat-square&labelColor=0b1210" /></a><!-- BADGE:END -->
+<img src="https://img.shields.io/badge/focus-AI_evaluation-39d353?style=flat-square&labelColor=0b1210" />
+<img src="https://img.shields.io/badge/tests-run_on_every_push-2ea043?style=flat-square&labelColor=0b1210" />
 
-I work in AI output evaluation and quality assurance — scoring model responses, auditing other evaluators' work, and writing evidence-based rationales. My projects turn that work into software: rubric pipelines, agreement metrics, bias checks and annotation audits, plus AI tools that refuse to make things up.
+</div>
 
-**Focus areas:** inter-rater agreement · LLM-as-a-judge reliability · annotation QA · rubric design · grounded generation
+<!-- AVAILABILITY: edit the line below, then delete this comment's opening and closing markers to show it.
+<p align="center"><b>📍 Based in YOUR CITY, Kenya</b> · 🟢 Open to roles in AI evaluation, data quality and analytics</p>
+-->
 
----
+<img width="100%" src="assets/divider.svg" />
 
-### 🧪 AI evaluation
+## 🧪 Evaluation report
 
-| Project | What it does | Stack |
-|---|---|---|
-| **[RubricOps](https://github.com/judie-paul/rubricops)** | Evaluation review platform: versioned rubrics, two independent scores per task, sampled reviewer audits, adjudication, and a dashboard for Cohen's kappa, exact agreement and overturn rate. | TypeScript · Next.js · PostgreSQL · Prisma · Playwright |
-| **[JudgeCheck](https://github.com/judie-paul/judgecheck)** | How far can LLM judges be trusted? Measures agreement, position bias and verbosity bias against ~3,300 MT-Bench expert votes across direct, rationale and rubric prompting. 92 tests, CI on Python 3.11/3.12. | Python · Streamlit · Ollama · OpenAI/Anthropic SDKs |
-| **[LabelLint](https://github.com/judie-paul/labellint)** | Offline-first annotation audit pipeline that flags duplicate rationales, rating/rationale contradictions, speed and agreement anomalies — with evidence for each flag. F1 ≈ 0.82–0.84 on seeded synthetic data; 97% test coverage. | Python · FastAPI · Typer · React |
-| **[PatchBench](https://github.com/judie-paul/patchbench)** | SWE-bench-style runner that checks whether a proposed code patch actually fixes an issue without breaking anything, by running the repo's own tests in an isolated Docker container. *(In progress)* | Python · Docker · FastAPI · Celery |
+<img width="100%" src="assets/eval-scan.svg" alt="animated evaluation report" />
 
-### 📚 Grounded AI apps
+| Criterion | Verdict | Evidence |
+|:--|:--:|:--|
+| Measures rater agreement | ✅ | Cohen's kappa, exact agreement and overturn rate across independent scorers in `rubricops` |
+| Knows when an AI judge is biased | ✅ | Position and verbosity bias against ~3,300 MT-Bench expert votes in `judgecheck` |
+| Audits training labels | ✅ | Flags contradictions, duplicate rationales and speed anomalies — with evidence for each — in `labellint` |
+| Doesn't let AI invent sources | ✅ | Every quote checked against the source page in `reference-based-revision-tool`; only real Crossref/OpenAlex records in `citewise-ai` |
+| Tests before shipping | ✅ | 92 tests + CI in `judgecheck` · 97% coverage in `labellint` · Playwright browser tests in `rubricops` |
+| Builds things that actually run | ✅ | <!-- COUNT:START -->10<!-- COUNT:END --> public projects, including single-binary Go apps with no setup |
+| Currently leveling up | 🔄 | `patchbench`: SWE-bench-style patch evaluation in isolated Docker containers |
 
-| Project | What it does | Stack |
-|---|---|---|
-| **[Revision Tool](https://github.com/judie-paul/reference-based-revision-tool)** | Answers past exam questions from your own uploaded notes first, and labels every answer as document-based, supplemented, external or not answered. Every cited quote is checked against the source pages. | Go · SQLite · Anthropic/OpenAI · Tavily |
-| **[CiteWise AI](https://github.com/judie-paul/citewise-ai)** | Finds real academic references for an essay topic or uploaded essay via Crossref and OpenAlex, removes duplicates, and formats APA 7 or Harvard citations. Never invents publications, authors or DOIs. | Go · Crossref · OpenAlex · OpenAI |
-| **[GitHub → Resume](https://github.com/judie-paul/github-resume-generator)** | Turns a public GitHub profile into an editable, ATS-friendly resume with PDF export. AI output is validated as structured JSON before display; works without an API key. | Go (standard library) · Claude API |
+<img width="100%" src="assets/divider.svg" />
 
-### 🛠️ Web apps
+## ⚡ Projects
 
-| Project | What it does | Stack |
-|---|---|---|
-| **[Shoebox](https://github.com/judie-paul/shoebox)** | Single-vendor shoe store shipped as one executable: catalog with filters, size/colour stock, cart, checkout and a vendor dashboard. | Go · SQLite · html/template |
-| **[School Management System](https://github.com/judie-paul/school-management-system)** | Self-contained web app for managing students, exam results and fees, with separate staff and parent access. | Go |
-| **[Contractor Application](https://github.com/judie-paul/contractor-application)** | Airtable-based contractor application pipeline. | Python · Airtable |
+<a href="https://github.com/judie-paul?tab=repositories">
+  <img width="100%" src="assets/repo-bubbles.svg" alt="Public repos as floating bubbles" />
+</a>
 
-<sub>Metrics come from each repo's own README; LabelLint figures are on synthetic data.</sub>
+<p align="center">
+  <b>🧪 Evaluation:</b>
+  <a href="https://github.com/judie-paul/rubricops">RubricOps</a> ·
+  <a href="https://github.com/judie-paul/judgecheck">JudgeCheck</a> ·
+  <a href="https://github.com/judie-paul/labellint">LabelLint</a> ·
+  <a href="https://github.com/judie-paul/patchbench">PatchBench</a>
+</p>
 
----
+<p align="center">
+  <b>📚 Grounded AI:</b>
+  <a href="https://github.com/judie-paul/reference-based-revision-tool">Revision Tool</a> ·
+  <a href="https://github.com/judie-paul/citewise-ai">CiteWise AI</a> ·
+  <a href="https://github.com/judie-paul/github-resume-generator">GitHub → Resume</a>
+</p>
 
-### Toolkit
+<p align="center">
+  <b>🛠️ Web apps:</b>
+  <a href="https://github.com/judie-paul/shoebox">Shoebox</a> ·
+  <a href="https://github.com/judie-paul/school-management-system">School Management</a> ·
+  <a href="https://github.com/judie-paul/contractor-application">Contractor Application</a>
+</p>
 
-**Languages:** Python · Go · TypeScript · SQL
-**Data & ML:** NumPy · Hugging Face datasets · evaluation metrics (precision/recall/F1, Cohen's kappa)
-**AI:** Anthropic & OpenAI APIs · Ollama · structured output validation · citation verification
-**Web & APIs:** FastAPI · Next.js · React · Streamlit · Go net/http
-**Infra & quality:** PostgreSQL · SQLite · Prisma · Docker · GitHub Actions · pytest · Playwright
+<img width="100%" src="assets/divider.svg" />
 
----
+## 🧰 Toolbox
 
-### How I build
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=py,go,ts,fastapi,nextjs,react,postgres,sqlite,prisma,docker,githubactions,git,linux,vscode&perline=14" />
+</p>
 
-- **Honest metrics** — every number states its data source and caveats.
-- **No made-up sources** — AI output is checked against real documents and real records.
-- **Reproducible** — seeded data, pinned datasets, one-command setup with Docker, `make` or a single binary.
-- **Reviewer-first** — tools show the evidence behind a flag, not just a score.
+<img width="100%" src="assets/divider.svg" />
 
----
+## 🐍 Activity
+
+<div align="center">
+
+<img src="https://streak-stats.demolab.com?user=judie-paul&theme=dark&hide_border=true&background=0B1210&ring=39D353&fire=39D353&currStreakLabel=39D353" />
+
+</div>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/judie-paul/judie-paul/output/calendar-dark.svg">
@@ -68,10 +86,23 @@ I work in AI output evaluation and quality assurance — scoring model responses
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/judie-paul/judie-paul/output/github-snake-dark.svg">
-  <img src="https://raw.githubusercontent.com/judie-paul/judie-paul/output/github-snake.svg" width="100%" alt="Snake animation eating the contribution graph">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/judie-paul/judie-paul/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/judie-paul/judie-paul/output/github-snake.svg" />
+  <img alt="contribution snake" src="https://raw.githubusercontent.com/judie-paul/judie-paul/output/github-snake-dark.svg" width="100%" />
 </picture>
 
-<p align="center"><sub>Open to roles in AI evaluation, data quality and analytics.</sub></p>
+<img width="100%" src="assets/divider.svg" />
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2ea043,100:0d1117&height=110&section=footer" width="100%" alt="">
+## 📡 Reach me
+
+<div align="center">
+
+<a href="mailto:judyjudith119@gmail.com"><img src="https://img.shields.io/badge/Email-0b1210?style=for-the-badge&logo=gmail&logoColor=39D353" /></a>
+<a href="https://github.com/judie-paul"><img src="https://img.shields.io/badge/GitHub-0b1210?style=for-the-badge&logo=github&logoColor=white" /></a>
+<!-- LINKEDIN: replace YOUR_LINKEDIN, then delete this comment's opening and closing markers to show it.
+<a href="https://linkedin.com/in/YOUR_LINKEDIN"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+-->
+
+</div>
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:39d353,50:0e4429,100:08130e&height=100&section=footer&animation=twinkling" />
