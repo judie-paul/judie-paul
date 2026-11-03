@@ -62,6 +62,10 @@ I work in AI output evaluation and quality assurance — scoring model responses
 
 ---
 
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=judie-paul&theme=github-compact&hide_border=true&area=true&bg_color=0d1117&color=2ea043&line=2ea043&point=ffffff" width="100%" alt="Daily contribution graph with dates">
+</p>
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/judie-paul/judie-paul/output/github-snake-dark.svg">
   <img src="https://raw.githubusercontent.com/judie-paul/judie-paul/output/github-snake.svg" width="100%" alt="Snake animation eating the contribution graph">
