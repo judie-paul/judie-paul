@@ -12,12 +12,21 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
+
+      - name: Draw dated contribution calendar
+        run: python .github/scripts/calendar.py
+        env:
+          GITHUB_USER: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OUT_DIR: dist
 
       - uses: crazy-max/ghaction-github-pages@v4
         with:
