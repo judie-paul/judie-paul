@@ -7,6 +7,7 @@ import datetime as dt
 import json
 import os
 import sys
+import urllib.error
 import urllib.request
 
 OUT_DIR = os.environ.get("OUT_DIR", "dist")
@@ -46,8 +47,11 @@ def fetch(login, token):
     req = urllib.request.Request(
         "https://api.github.com/graphql", data=body,
         headers={"Authorization": f"bearer {token}", "Content-Type": "application/json"})
-    with urllib.request.urlopen(req) as r:
-        data = json.load(r)
+    try:
+        with urllib.request.urlopen(req) as r:
+            data = json.load(r)
+    except urllib.error.HTTPError as e:
+        sys.exit(f"GitHub API returned HTTP {e.code}: {e.read().decode(errors='replace')[:500]}")
     if "errors" in data:
         sys.exit(f"GraphQL error: {data['errors']}")
     return data["data"]["user"]["contributionsCollection"]["contributionCalendar"]
