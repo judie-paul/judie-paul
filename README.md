@@ -1,4 +1,4 @@
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:08130e,50:0e4429,100:39d353&height=200&section=header&text=Judy%20Ndungu&fontSize=56&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=I%20measure%20whether%20AI%20can%20be%20trusted%20%E2%80%94%20then%20build%20apps%20that%20earn%20it&descSize=16&descAlignY=58" />
+﻿<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:08130e,50:0e4429,100:39d353&height=200&section=header&text=Judy%20Ndungu&fontSize=56&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=I%20measure%20whether%20AI%20can%20be%20trusted%20%E2%80%94%20then%20build%20apps%20that%20earn%20it&descSize=16&descAlignY=58" />
 
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=3500&pause=800&color=39D353&center=true&vCenter=true&width=720&multiline=false&lines=%3E+scoring+model+responses...;%3E+measuring+rater+agreement...;%3E+catching+LLM-judge+bias...;%3E+auditing+training+labels...;%3E+shipping+AI+apps+that+cite+real+sources...;%3E+status%3A+building+in+public+%E2%9A%A1" alt="Typing animation" />
@@ -20,7 +20,7 @@
 
 ## 🧪 Evaluation report
 
-<img width="100%" src="assets/eval-scan.svg" alt="animated evaluation report" />
+<img width="100%" src="assets/eval-scan.svg?v=2" alt="animated evaluation report" />
 
 | Criterion | Verdict | Evidence |
 |:--|:--:|:--|
