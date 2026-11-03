@@ -18,9 +18,9 @@
 
 <img width="100%" src="assets/divider.svg?v=lav" />
 
-## 🧪 Evaluation report
+## 🧪 The trust pipeline
 
-<img width="100%" src="assets/eval-scan.svg?v=lav" alt="animated evaluation report" />
+<img width="100%" src="assets/trust-pipeline.svg?v=1" alt="Animated trust pipeline: an AI answer is checked by each of Judy's tools before it is stamped trusted" />
 
 | Criterion | Verdict | Evidence |
 |:--|:--:|:--|
@@ -50,18 +50,18 @@
 **📚 Grounded AI apps**
 
 <p align="center">
-  <a href="https://github.com/judie-paul/reference-based-revision-tool"><img src="assets/cards/reference-based-revision-tool.svg?v=01c8a49" width="49%" alt="Revision Tool" /></a>
-  <a href="https://github.com/judie-paul/citewise-ai"><img src="assets/cards/citewise-ai.svg?v=90e2a68" width="49%" alt="CiteWise AI" /></a>
-  <a href="https://github.com/judie-paul/github-resume-generator"><img src="assets/cards/github-resume-generator.svg?v=59f1baf" width="98.8%" alt="GitHub → Resume" /></a>
+  <a href="https://github.com/judie-paul/reference-based-revision-tool"><img src="assets/cards/reference-based-revision-tool.svg?v=82af0da" width="32.6%" alt="Revision Tool" /></a>
+  <a href="https://github.com/judie-paul/citewise-ai"><img src="assets/cards/citewise-ai.svg?v=545ec12" width="32.6%" alt="CiteWise AI" /></a>
+  <a href="https://github.com/judie-paul/github-resume-generator"><img src="assets/cards/github-resume-generator.svg?v=6ae6473" width="32.6%" alt="GitHub → Resume" /></a>
 </p>
 
 
 **🛠️ Web apps**
 
 <p align="center">
-  <a href="https://github.com/judie-paul/shoebox"><img src="assets/cards/shoebox.svg?v=12ad69b" width="49%" alt="Shoebox" /></a>
-  <a href="https://github.com/judie-paul/school-management-system"><img src="assets/cards/school-management-system.svg?v=80a6827" width="49%" alt="School Management" /></a>
-  <a href="https://github.com/judie-paul/contractor-application"><img src="assets/cards/contractor-application.svg?v=649fe77" width="98.8%" alt="Contractor Application" /></a>
+  <a href="https://github.com/judie-paul/shoebox"><img src="assets/cards/shoebox.svg?v=a29a0f6" width="32.6%" alt="Shoebox" /></a>
+  <a href="https://github.com/judie-paul/school-management-system"><img src="assets/cards/school-management-system.svg?v=6c17169" width="32.6%" alt="School Management" /></a>
+  <a href="https://github.com/judie-paul/contractor-application"><img src="assets/cards/contractor-application.svg?v=bacefe8" width="32.6%" alt="Contractor Application" /></a>
 </p>
 <!-- PROJECTS:END -->
 
