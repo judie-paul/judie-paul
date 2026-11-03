@@ -31,12 +31,12 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
 
 THEMES = {
     "dark": {
-        "bg": "#0d1117", "text": "#8b949e", "title": "#e6edf3", "future": "#30363d",
-        "levels": ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+        "bg": "#0f0b1e", "text": "#a99cc8", "title": "#ede7ff", "future": "#3a3054",
+        "levels": ["#1c1630", "#3b2a6b", "#5b3fa0", "#8b6cf0", "#c4a7ff"],
     },
     "light": {
         "bg": "#ffffff", "text": "#57606a", "title": "#1f2328", "future": "#d0d7de",
-        "levels": ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+        "levels": ["#ebedf0", "#e4d9ff", "#c4a7ff", "#9f7aea", "#6b46c1"],
     },
 }
 LEVEL = {"NONE": 0, "FIRST_QUARTILE": 1, "SECOND_QUARTILE": 2,

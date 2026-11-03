@@ -47,7 +47,7 @@ SUBTITLES = {
 EVAL_WORDS = re.compile(r"\b(evaluat\w*|judge\w*|rubric\w*|annotat\w*|label\w*|bench\w*|agreement)\b", re.I)
 AI_WORDS = re.compile(r"\b(ai|llm|llms|claude|gemini|openai|gpt)\b", re.I)
 
-GREEN, AQUA, VIOLET = "#39d353", "#2dd4bf", "#a78bfa"
+GREEN, AQUA, VIOLET = "#c4a7ff", "#f0abfc", "#a5b4fc"
 FONT = "'Segoe UI',-apple-system,'Helvetica Neue',Arial,sans-serif"
 R, W = 72, 800
 PER_ROW, GAP, ROW_H = 4, 180, 170
@@ -118,10 +118,10 @@ def bubble(index, repo, x, y, kind):
         for j, t in enumerate(lines)
     )
     if sub:
-        text += f'<text x="0" y="{top + len(lines) * 17 + 19:.1f}" text-anchor="middle" fill="#a7c4b5" font-size="11">{escape(sub)}</text>'
+        text += f'<text x="0" y="{top + len(lines) * 17 + 19:.1f}" text-anchor="middle" fill="#c3b6e6" font-size="11">{escape(sub)}</text>'
     live = ""
     if repo.get("homepage"):
-        live = f'<circle class="lv" cx="{R * 0.71:.0f}" cy="{-R * 0.71:.0f}" r="6" fill="{GREEN}" stroke="#08130e" stroke-width="2.5"/>'
+        live = f'<circle class="lv" cx="{R * 0.71:.0f}" cy="{-R * 0.71:.0f}" r="6" fill="{GREEN}" stroke="#0d0a1c" stroke-width="2.5"/>'
     css = f".b{index}{{animation:fl {6 + (index % 4) * 0.4:.1f}s ease-in-out {-index * 0.9:.1f}s infinite}}"
     shape = (
         f'<g transform="translate({x} {y})"><g class="b{index}">'
@@ -164,11 +164,11 @@ def build_svg(repos):
     sub = f"{len(repos)} public repos" + (f" · {live_total} live" if live_total else "")
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {height}" width="{W}" height="{height}" font-family="{FONT}" role="img" aria-label="{len(repos)} public repositories as floating bubbles">
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#08130e"/><stop offset="1" stop-color="#0f2a1e"/></linearGradient>
-<radialGradient id="glass" cx=".32" cy=".25" r=".95"><stop offset="0" stop-color="#1d4a36"/><stop offset="1" stop-color="#0a1912"/></radialGradient>
-<linearGradient id="rG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7ee787"/><stop offset="1" stop-color="#1a7f37"/></linearGradient>
-<linearGradient id="rA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#99f6e4"/><stop offset="1" stop-color="#0d9488"/></linearGradient>
-<linearGradient id="rV" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c4b5fd"/><stop offset="1" stop-color="#7c5ce6"/></linearGradient>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d0a1c"/><stop offset="1" stop-color="#1d1540"/></linearGradient>
+<radialGradient id="glass" cx=".32" cy=".25" r=".95"><stop offset="0" stop-color="#2b2058"/><stop offset="1" stop-color="#110c26"/></radialGradient>
+<linearGradient id="rG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9ddff"/><stop offset="1" stop-color="#8b6cf0"/></linearGradient>
+<linearGradient id="rA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbe2ff"/><stop offset="1" stop-color="#c026d3"/></linearGradient>
+<linearGradient id="rV" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dbe1ff"/><stop offset="1" stop-color="#6366f1"/></linearGradient>
 <radialGradient id="hG"><stop offset=".7" stop-color="{GREEN}" stop-opacity=".16"/><stop offset="1" stop-color="{GREEN}" stop-opacity="0"/></radialGradient>
 <radialGradient id="hA"><stop offset=".7" stop-color="{AQUA}" stop-opacity=".16"/><stop offset="1" stop-color="{AQUA}" stop-opacity="0"/></radialGradient>
 <radialGradient id="hV"><stop offset=".7" stop-color="{VIOLET}" stop-opacity=".18"/><stop offset="1" stop-color="{VIOLET}" stop-opacity="0"/></radialGradient>
@@ -182,7 +182,7 @@ def build_svg(repos):
 </style>
 <rect width="{W}" height="{height}" rx="22" fill="url(#bg)"/>
 <text x="40" y="58" fill="#fff" font-size="28" font-weight="800">Projects</text>
-<text x="40" y="82" fill="#a7c4b5" font-size="14">{escape(sub)}</text>
+<text x="40" y="82" fill="#c3b6e6" font-size="14">{escape(sub)}</text>
 {chr(10).join(labels)}
 {chr(10).join(shapes)}
 </svg>
@@ -210,7 +210,7 @@ def main():
     text = replace_between(text, "COUNT", str(len(repos)))
     badge = (
         f'<a href="https://github.com/{USER}?tab=repositories"><img src="https://img.shields.io/badge/'
-        f'projects-{len(repos)}_public-1f6f43?style=flat-square&labelColor=0b1210" /></a>'
+        f'projects-{len(repos)}_public-5b3fa0?style=flat-square&labelColor=0f0b1e" /></a>'
     )
     text = replace_between(text, "BADGE", badge)
     README.write_text(text, encoding="utf-8")
