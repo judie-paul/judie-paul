@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:2ea043&height=190&section=header&text=Judy%20Ndungu&fontColor=ffffff&fontSize=50&fontAlignY=36&animation=fadeIn&desc=AI%20evaluation%20%26%20data%20quality&descAlignY=58&descSize=18" width="100%" alt="Judy Ndungu — AI evaluation & data quality">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:2ea043&height=190&section=header&text=Judy%20Ndungu&fontColor=ffffff&fontSize=50&fontAlignY=36&animation=fadeIn&desc=AI%20evaluation%20%C2%B7%20data%20quality&descAlignY=58&descSize=18" width="100%" alt="Judy Ndungu — AI evaluation and data quality">
 
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=2EA043&center=true&vCenter=true&width=640&lines=Measuring+whether+model+judgments+can+be+trusted;Rubrics+%C2%B7+agreement+metrics+%C2%B7+LLM-judge+bias;Annotation+QA+with+evidence+for+every+flag;AI+apps+that+cite+real+sources" alt="Typing animation of focus areas">
