@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="150" viewBox="0 0 420 150" font-family="'Segoe UI',-apple-system,'Helvetica Neue',Arial,sans-serif" role="img" aria-label="JudgeCheck">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16102e"/><stop offset="1" stop-color="#0f0b1e"/></linearGradient>
+<linearGradient id="edge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c4a7ff"/><stop offset="1" stop-color="#8b6cf0"/></linearGradient>
+<linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#c4a7ff" stop-opacity="0"/><stop offset=".5" stop-color="#c4a7ff" stop-opacity=".9"/><stop offset="1" stop-color="#c4a7ff" stop-opacity="0"/></linearGradient>
+<clipPath id="c"><rect width="420" height="150" rx="14"/></clipPath>
+</defs>
+<style>
+.s{animation:mv 6s ease-in-out -2.6s infinite}
+@keyframes mv{0%{transform:translateX(-160px)}60%,100%{transform:translateX(440px)}}
+.lv{animation:pu 2s ease-in-out infinite}
+@keyframes pu{0%,100%{opacity:1}50%{opacity:.3}}
+</style>
+<g clip-path="url(#c)">
+<rect width="420" height="150" fill="url(#bg)"/>
+<rect width="4" height="150" fill="url(#edge)"/>
+<rect class="s" x="0" y="0" width="140" height="2" fill="url(#sh)"/>
+</g>
+<rect x=".5" y=".5" width="419" height="149" rx="14" fill="none" stroke="#3b2a6b"/>
+<text x="24" y="42" fill="#ede7ff" font-size="19" font-weight="700">JudgeCheck</text>
+<text x="396" y="42" fill="#c4a7ff" font-size="16" text-anchor="end">↗</text>
+<text x="24" y="76" fill="#c3b6e6" font-size="13">How far can LLM judges be trusted? Agreement, position</text><text x="24" y="95" fill="#c3b6e6" font-size="13">bias and verbosity bias against MT-Bench experts.</text>
+<circle cx="30" cy="128" r="5" fill="#3572A5"/><text x="42" y="132" fill="#a99cc8" font-size="12">Python</text>
+</svg>
