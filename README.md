@@ -4,12 +4,6 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=2EA043&center=true&vCenter=true&width=640&lines=Measuring+whether+model+judgments+can+be+trusted;Rubrics+%C2%B7+agreement+metrics+%C2%B7+LLM-judge+bias;Annotation+QA+with+evidence+for+every+flag;AI+apps+that+cite+real+sources" alt="Typing animation of focus areas">
 </p>
 
-<p align="center">
-  <a href="mailto:YOUR_EMAIL"><img src="https://img.shields.io/badge/Email-222?style=flat&logo=gmail&logoColor=white" alt="Email"></a>
-  <a href="https://www.linkedin.com/in/YOUR_LINKEDIN"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
-  <img src="https://img.shields.io/badge/Based%20in-Nairobi%2C%20Kenya-555?style=flat" alt="Nairobi, Kenya">
-</p>
-
 ---
 
 ### About
