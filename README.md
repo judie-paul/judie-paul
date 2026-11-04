@@ -67,7 +67,7 @@
   <a href="https://github.com/judie-paul/rubricops"><img src="assets/cards/rubricops.svg?v=2a715bf" width="49%" alt="RubricOps" /></a>
   <a href="https://github.com/judie-paul/judgecheck"><img src="assets/cards/judgecheck.svg?v=4e5dbd4" width="49%" alt="JudgeCheck" /></a>
   <a href="https://github.com/judie-paul/labellint"><img src="assets/cards/labellint.svg?v=676412a" width="49%" alt="LabelLint" /></a>
-  <a href="https://github.com/judie-paul/patchbench"><img src="assets/cards/patchbench.svg?v=28c705c" width="49%" alt="PatchBench" /></a>
+  <a href="https://github.com/judie-paul/patchbench"><img src="assets/cards/patchbench.svg?v=029b56c" width="49%" alt="PatchBench" /></a>
 </p>
 
 
