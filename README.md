@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<!-- BADGE:START --><a href="https://github.com/judie-paul?tab=repositories"><img src="https://img.shields.io/badge/projects-10_public-5b3fa0?style=flat-square&labelColor=0f0b1e" /></a><!-- BADGE:END -->
+<!-- BADGE:START --><a href="https://github.com/judie-paul?tab=repositories"><img src="https://img.shields.io/badge/projects-11_public-5b3fa0?style=flat-square&labelColor=0f0b1e" /></a><!-- BADGE:END -->
 <img src="https://img.shields.io/badge/status-open_to_work-e879f9?style=flat-square&labelColor=0f0b1e" />
 <img src="https://img.shields.io/badge/card-updated_daily-a78bfa?style=flat-square&labelColor=0f0b1e" />
 
@@ -22,7 +22,7 @@
 | **Model type** | Human · AI evaluator who also builds the tools |
 | **Specialisation** | AI output evaluation · inter-rater agreement · LLM-as-a-judge reliability · annotation QA · grounded generation |
 | **Languages** | Python · Go · TypeScript · SQL |
-| **Release** | `judy.v2026`, with <!-- COUNT:START -->10<!-- COUNT:END --> public checkpoints |
+| **Release** | `judy.v2026`, with <!-- COUNT:START -->11<!-- COUNT:END --> public checkpoints |
 | **License** | 🟢 Open to work |
 
 ## 🎯 Intended use
@@ -83,9 +83,10 @@
 **🛠️ Web apps**
 
 <p align="center">
-  <a href="https://github.com/judie-paul/shoebox"><img src="assets/cards/shoebox.svg?v=588d6ea" width="32.6%" alt="Shoebox" /></a>
-  <a href="https://github.com/judie-paul/school-management-system"><img src="assets/cards/school-management-system.svg?v=22a7be4" width="32.6%" alt="School Management" /></a>
-  <a href="https://github.com/judie-paul/contractor-application"><img src="assets/cards/contractor-application.svg?v=4ce1a88" width="32.6%" alt="Contractor Application" /></a>
+  <a href="https://github.com/judie-paul/shoebox"><img src="assets/cards/shoebox.svg?v=feabd69" width="49%" alt="Shoebox" /></a>
+  <a href="https://github.com/judie-paul/school-management-system"><img src="assets/cards/school-management-system.svg?v=0dbc916" width="49%" alt="School Management" /></a>
+  <a href="https://github.com/judie-paul/contractor-application"><img src="assets/cards/contractor-application.svg?v=71496d1" width="49%" alt="Contractor Application" /></a>
+  <a href="https://github.com/judie-paul/kanban"><img src="assets/cards/kanban.svg?v=d6d6f40" width="49%" alt="kanban" /></a>
 </p>
 <!-- PROJECTS:END -->
 
