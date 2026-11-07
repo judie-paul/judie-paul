@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<!-- BADGE:START --><a href="https://github.com/judie-paul?tab=repositories"><img src="https://img.shields.io/badge/projects-11_public-5b3fa0?style=flat-square&labelColor=0f0b1e" /></a><!-- BADGE:END -->
+<!-- BADGE:START --><a href="https://github.com/judie-paul?tab=repositories"><img src="https://img.shields.io/badge/projects-12_public-5b3fa0?style=flat-square&labelColor=0f0b1e" /></a><!-- BADGE:END -->
 <img src="https://img.shields.io/badge/status-open_to_work-e879f9?style=flat-square&labelColor=0f0b1e" />
 <img src="https://img.shields.io/badge/card-updated_daily-a78bfa?style=flat-square&labelColor=0f0b1e" />
 
@@ -22,7 +22,7 @@
 | **Model type** | Human · AI evaluator who also builds the tools |
 | **Specialisation** | AI output evaluation · inter-rater agreement · LLM-as-a-judge reliability · annotation QA · grounded generation |
 | **Languages** | Python · Go · TypeScript · SQL |
-| **Release** | `judy.v2026`, with <!-- COUNT:START -->11<!-- COUNT:END --> public checkpoints |
+| **Release** | `judy.v2026`, with <!-- COUNT:START -->12<!-- COUNT:END --> public checkpoints |
 | **License** | 🟢 Open to work |
 
 ## 🎯 Intended use
@@ -74,19 +74,20 @@
 **📚 Grounded AI apps**
 
 <p align="center">
-  <a href="https://github.com/judie-paul/reference-based-revision-tool"><img src="assets/cards/reference-based-revision-tool.svg?v=3212785" width="32.6%" alt="Revision Tool" /></a>
-  <a href="https://github.com/judie-paul/citewise-ai"><img src="assets/cards/citewise-ai.svg?v=38c63b1" width="32.6%" alt="CiteWise AI" /></a>
-  <a href="https://github.com/judie-paul/github-resume-generator"><img src="assets/cards/github-resume-generator.svg?v=c104701" width="32.6%" alt="GitHub → Resume" /></a>
+  <a href="https://github.com/judie-paul/reference-based-revision-tool"><img src="assets/cards/reference-based-revision-tool.svg?v=3005a82" width="49%" alt="Revision Tool" /></a>
+  <a href="https://github.com/judie-paul/citewise-ai"><img src="assets/cards/citewise-ai.svg?v=6fb1c88" width="49%" alt="CiteWise AI" /></a>
+  <a href="https://github.com/judie-paul/github-resume-generator"><img src="assets/cards/github-resume-generator.svg?v=e20d79b" width="49%" alt="GitHub → Resume" /></a>
+  <a href="https://github.com/judie-paul/secassess-mcp"><img src="assets/cards/secassess-mcp.svg?v=079f813" width="49%" alt="secassess-mcp" /></a>
 </p>
 
 
 **🛠️ Web apps**
 
 <p align="center">
-  <a href="https://github.com/judie-paul/shoebox"><img src="assets/cards/shoebox.svg?v=feabd69" width="49%" alt="Shoebox" /></a>
-  <a href="https://github.com/judie-paul/school-management-system"><img src="assets/cards/school-management-system.svg?v=0dbc916" width="49%" alt="School Management" /></a>
-  <a href="https://github.com/judie-paul/contractor-application"><img src="assets/cards/contractor-application.svg?v=71496d1" width="49%" alt="Contractor Application" /></a>
-  <a href="https://github.com/judie-paul/kanban"><img src="assets/cards/kanban.svg?v=d6d6f40" width="49%" alt="kanban" /></a>
+  <a href="https://github.com/judie-paul/shoebox"><img src="assets/cards/shoebox.svg?v=97c1494" width="49%" alt="Shoebox" /></a>
+  <a href="https://github.com/judie-paul/school-management-system"><img src="assets/cards/school-management-system.svg?v=5a8a130" width="49%" alt="School Management" /></a>
+  <a href="https://github.com/judie-paul/contractor-application"><img src="assets/cards/contractor-application.svg?v=8a58942" width="49%" alt="Contractor Application" /></a>
+  <a href="https://github.com/judie-paul/kanban"><img src="assets/cards/kanban.svg?v=38687b4" width="49%" alt="kanban" /></a>
 </p>
 <!-- PROJECTS:END -->
 

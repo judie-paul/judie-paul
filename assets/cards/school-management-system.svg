@@ -6,7 +6,7 @@
 <clipPath id="c"><rect width="420" height="160" rx="14"/></clipPath>
 </defs>
 <style>
-.s{animation:mv 6s ease-in-out -11.7s infinite}
+.s{animation:mv 6s ease-in-out -13.0s infinite}
 @keyframes mv{0%{transform:translateX(-160px)}60%,100%{transform:translateX(440px)}}
 .lv{animation:pu 2s ease-in-out infinite}
 @keyframes pu{0%,100%{opacity:1}50%{opacity:.3}}
